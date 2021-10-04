@@ -1,0 +1,55 @@
+mat-toolbar {
+    background: #004a9f;
+    color: white;
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 400px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: lightgray;
+}
+
+mat-sidenav-container {
+    width:  100vw;
+    height: 100vh;
+}
+
+.example-section {
+    padding: 1rem;
+    margin: 12px 12px;
+  }
+  
+  .example-margin {
+    clear: left;
+    float: left;
+    margin: 0 12px;
+  }
+
+  .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  #map
+{
+    width: 100vw;
+    height: 100vh;
+}

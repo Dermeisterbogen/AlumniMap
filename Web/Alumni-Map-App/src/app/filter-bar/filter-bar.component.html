@@ -1,0 +1,132 @@
+<div>
+    <mat-toolbar class="mat-elevation-z8">
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+        </button>
+        Menu
+    </mat-toolbar>
+        
+        <mat-sidenav-container>
+            <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        
+                <h4> Filter </h4>
+
+                <!-- Drop Down that will hold all the possible filters -->
+                <mat-accordion>
+                    <!-- Panel that will be holding the majors by department -->
+                    <mat-expansion-panel >
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Major
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <!-- Panels for department names -->
+                        <mat-expansion-panel >
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    College of Engineering
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                                <section class="example-section">
+                                    <mat-checkbox class="example-margin">Mechanical Engineering</mat-checkbox>         
+                                    <mat-checkbox class="example-margin">Electrical Engineering</mat-checkbox>          
+                                    <mat-checkbox class="example-margin">Environmental Engineering</mat-checkbox>                      
+                                    <mat-checkbox class="example-margin">Civil Engineering</mat-checkbox>                         
+                                    <mat-checkbox class="example-margin">Biomedical Engineering</mat-checkbox>                           
+                                    <mat-checkbox class="example-margin">Computer Engineering</mat-checkbox>
+                                    <mat-checkbox class="example-margin">Industrial Engineering</mat-checkbox>
+                                </section>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel >
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    College of Liberal Arts
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                                <section class="example-section">
+                                    <mat-checkbox class="example-margin">Computer Science</mat-checkbox>
+                                    <mat-checkbox class="example-margin">Math</mat-checkbox>
+                                    <mat-checkbox class="example-margin">Language</mat-checkbox>
+                                    <mat-checkbox class="example-margin">Computer Science</mat-checkbox>
+                                </section>
+                        </mat-expansion-panel>
+                    </mat-expansion-panel>
+
+                    <!-- Panel for Minors by department-->
+                    <mat-expansion-panel >
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Minor
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <!-- Panels for department names -->
+                        <mat-expansion-panel >
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    College of Engineering
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                                <section class="example-section">
+                                    <mat-checkbox class="example-margin">Mechanical Engineering</mat-checkbox>         
+                                    <mat-checkbox class="example-margin">Electrical Engineering</mat-checkbox>          
+                                    <mat-checkbox class="example-margin">Environmental Engineering</mat-checkbox>                      
+                                    <mat-checkbox class="example-margin">Civil Engineering</mat-checkbox>                         
+                                    <mat-checkbox class="example-margin">Biomedical Engineering</mat-checkbox>                           
+                                    <mat-checkbox class="example-margin">Computer Engineering</mat-checkbox>
+                                    <mat-checkbox class="example-margin">Industrial Engineering</mat-checkbox>
+                                </section>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel >
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    College of Liberal Arts
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                                <section class="example-section">
+                                    <mat-checkbox class="example-margin">Computer Science</mat-checkbox>
+                                    <mat-checkbox class="example-margin">Math</mat-checkbox>
+                                    <mat-checkbox class="example-margin">Language</mat-checkbox>
+                                    <mat-checkbox class="example-margin">Computer Science</mat-checkbox>
+                                </section>
+                        </mat-expansion-panel>
+                    </mat-expansion-panel>
+                    <!-- Panel for grduation year -->
+                    <mat-expansion-panel >
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Graduation Year
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <section class="example-section">
+                            <mat-checkbox class="example-margin">2020</mat-checkbox>
+                            <mat-checkbox class="example-margin">2019</mat-checkbox>
+                            <mat-checkbox class="example-margin">2018</mat-checkbox>
+                            <mat-checkbox class="example-margin">2017</mat-checkbox>
+                            <mat-checkbox class="example-margin">2016</mat-checkbox>
+                            <mat-checkbox class="example-margin">2015</mat-checkbox>
+                        </section>
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+                <mat-divider></mat-divider>
+        
+                <button mat-button class="menu-button">
+                    <mat-icon>help</mat-icon>
+                    <span>Help</span>
+                </button>
+        
+            </mat-sidenav>
+            <div id="map"></div>
+            <!-- <mat-sidenav-content>
+                <div class="content mat-elevation-z8">
+                    <div id="map"></div>
+                </div>
+            </mat-sidenav-content> -->
+    </mat-sidenav-container>
+    <router-outlet></router-outlet> 
+</div>
