@@ -21,7 +21,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
   declarations: [
     AppComponent,
     FilterBarComponent,
-    LandingPageComponent
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
