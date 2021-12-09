@@ -16,20 +16,22 @@ export class FilterBarComponent implements OnInit {
   majors : Major[] = MAJORS;
 
   //39.96462866921976, -97.1857268754143
+  //4.3 zoom
+  
 ngOnInit(): void { 
 
   console.log(this.majors)
 
-//   let loader = new Loader({
-//     apiKey: //HIDDEN
-//   })
+  let loader = new Loader({
+    apiKey: "AIzaSyD45LEtV6JF7emihinnYkZRxLegCJzWJRo"
+  })
 
-//   loader.load().then(() => {
-//     new google.maps.Map(document.getElementById("map")!, {
-//       center: {lat: 39.96462866921976, lng: -97.1857268754143},
-//       zoom: 4.3
-//     })
-//   }) 
+  loader.load().then(() => {
+    new google.maps.Map(document.getElementById("map")!, {
+      center: {lat: 39.96462866921976, lng: -97.1857268754143},
+      zoom: 4.3
+    })
+  }) 
 }
 
 returnCheckedMajors(){
