@@ -1,7 +1,7 @@
 <div>
     <mat-toolbar class="mat-elevation-z8">
         <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-            <mat-toolbar-row>
+            <!-- <mat-toolbar-row> -->
                 <mat-icon *ngIf="!sidenav.opened">
                     menu
                 </mat-icon>
@@ -9,7 +9,7 @@
                     close
                 </mat-icon>
                     <span class="span">Mercer University</span>
-            </mat-toolbar-row>
+            <!-- </mat-toolbar-row> -->
         </button>
         
     </mat-toolbar>
@@ -141,27 +141,29 @@
                     </mat-expansion-panel>
 
                     <!-- Panel for Minors by department-->
-                    <!-- <mat-expansion-panel >
+                    <mat-expansion-panel >
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 Minor
                             </mat-panel-title>
-                        </mat-expansion-panel-header> -->
+                        </mat-expansion-panel-header>
                         <!-- Panels for department names -->
-                        <!-- <mat-expansion-panel >
+                        <mat-expansion-panel >
                             <mat-expansion-panel-header>
                                 <mat-panel-title>
-                                    College of Engineering
+                                    School of Engineering
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
                                 <section class="example-section">
-                                    <mat-checkbox class="example-margin">Mechanical Engineering</mat-checkbox>         
-                                    <mat-checkbox class="example-margin">Electrical Engineering</mat-checkbox>          
-                                    <mat-checkbox class="example-margin">Environmental Engineering</mat-checkbox>                      
-                                    <mat-checkbox class="example-margin">Civil Engineering</mat-checkbox>                         
-                                    <mat-checkbox class="example-margin">Biomedical Engineering</mat-checkbox>                           
-                                    <mat-checkbox class="example-margin">Computer Engineering</mat-checkbox>
-                                    <mat-checkbox class="example-margin">Industrial Engineering</mat-checkbox>
+                                    <span *ngFor = "let minor of minors">
+                                        <span *ngIf = "minor.department == 'School of Engineering'">
+                                            <mat-checkbox [checked]="minor.checked" 
+                                            (change)="minor.checked = !minor.checked" 
+                                            class="example-margin">
+                                                    {{ minor.name }}
+                                            </mat-checkbox>
+                                        </span>
+                                    </span>
                                 </section>
                         </mat-expansion-panel>
                         <mat-expansion-panel >
@@ -170,30 +172,92 @@
                                     College of Liberal Arts & Sciences
                                 </mat-panel-title>
                             </mat-expansion-panel-header>
-                                <section class="example-section">
-                                    <mat-checkbox class="example-margin">Computer Science</mat-checkbox>
-                                    <mat-checkbox class="example-margin">Math</mat-checkbox>
-                                    <mat-checkbox class="example-margin">Language</mat-checkbox>
-                                    <mat-checkbox class="example-margin">Computer Science</mat-checkbox>
-                                </section>
+                            <section class="example-section">
+                                <span *ngFor = "let minor of minors">
+                                    <span *ngIf = "minor.department == 'College of Liberal Arts & Sciences'">
+                                        <mat-checkbox [checked]="minor.checked" 
+                                        (change)="minor.checked = !minor.checked" 
+                                        class="example-margin">
+                                                {{ minor.name }}
+                                        </mat-checkbox>
+                                    </span>
+                                </span>
+                            </section>
                         </mat-expansion-panel>
-                    </mat-expansion-panel> -->
-                    <!-- Panel for grduation year -->
-                    <!-- <mat-expansion-panel >
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                Graduation Year
-                            </mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <section class="example-section">
-                            <mat-checkbox class="example-margin">2020</mat-checkbox>
-                            <mat-checkbox class="example-margin">2019</mat-checkbox>
-                            <mat-checkbox class="example-margin">2018</mat-checkbox>
-                            <mat-checkbox class="example-margin">2017</mat-checkbox>
-                            <mat-checkbox class="example-margin">2016</mat-checkbox>
-                            <mat-checkbox class="example-margin">2015</mat-checkbox>
-                        </section> -->
-                    <!-- </mat-expansion-panel> -->
+                        <mat-expansion-panel >
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    School of Business
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <section class="example-section">
+                                <span *ngFor = "let minor of minors">
+                                    <span *ngIf = "minor.department == 'School of Business'">
+                                        <mat-checkbox [checked]="minor.checked" 
+                                        (change)="minor.checked = !minor.checked" 
+                                        class="example-margin">
+                                                {{ minor.name }}
+                                        </mat-checkbox>
+                                    </span>
+                                </span>
+                            </section>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel >
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    College of Education
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <section class="example-section">
+                                <span *ngFor = "let minor of minors">
+                                    <span *ngIf = "minor.department == 'College of Education'">
+                                        <mat-checkbox [checked]="minor.checked" 
+                                        (change)="minor.checked = !minor.checked" 
+                                        class="example-margin">
+                                                {{ minor.name }}
+                                        </mat-checkbox>
+                                    </span>
+                                </span>
+                            </section>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel >
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    School of Music
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <section class="example-section">
+                                <span *ngFor = "let minor of minors">
+                                    <span *ngIf = "minor.department == 'School of Music'">
+                                        <mat-checkbox [checked]="minor.checked" 
+                                        (change)="minor.checked = !minor.checked" 
+                                        class="example-margin">
+                                                {{ minor.name }}
+                                        </mat-checkbox>
+                                    </span>
+                                </span>
+                            </section>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel >
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    College of Health Professions
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <section class="example-section">
+                                <span *ngFor = "let minor of minors">
+                                    <span *ngIf = "minor.department == 'College of Health Professions'">
+                                        <mat-checkbox [checked]="minor.checked" 
+                                        (change)="minor.checked = !minor.checked" 
+                                        class="example-margin">
+                                                {{ minor.name }}
+                                        </mat-checkbox>
+                                    </span>
+                                </span>
+                            </section>
+                        </mat-expansion-panel>
+                        
+                    </mat-expansion-panel>
                 </mat-accordion>
 
                 <mat-divider></mat-divider>
@@ -202,9 +266,13 @@
                     <mat-icon>help</mat-icon>
                     <span>Help</span>
                 </button>
-                <button mat-button class="menu-button" (click)="returnCheckedMajors()">
+                <button mat-button class="menu-button" (click)="returnAll()">
                     <mat-icon>check</mat-icon>
                     <span>Submit</span>
+                </button>
+                <button mat-button class="menu-button" (click)="useFunction()">
+                    <mat-icon></mat-icon>
+                    <span>Test</span>
                 </button>
         
             </mat-sidenav>
