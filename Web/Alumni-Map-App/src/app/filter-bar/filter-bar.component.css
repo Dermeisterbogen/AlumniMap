@@ -1,5 +1,5 @@
 mat-toolbar {
-    background: #cf820e;
+    background: #f76800;
     color: black;
 }
 
@@ -11,7 +11,7 @@ mat-sidenav {
     margin: 16px;
     width: 400px;
     border-right: none;
-    background: #cf820e;
+    background: #f76800;
     color: black;
     border-radius: 10px;
     padding: 16px;

@@ -24,7 +24,8 @@ app.get('/api/alumni', cors(), (req, res) => {
 async function getAlumni() {
     try {
         let dbConn = await sql.connect(config)
-        let alumni = await dbConn.request().query('SELECT * FROM alumni')
+        // let alumni = await dbConn.request().query("SELECT * FROM alumni")
+        let alumni = await dbConn.request().query("SELECT * FROM alumni WHERE Major = 'Computer Science'")
         return alumni.recordset
     }
     catch (err) {

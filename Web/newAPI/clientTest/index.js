@@ -1,5 +1,5 @@
 const div = document.getElementById('add-alumni')
-const request = 'http://localhost:1234/api/alumni'
+const request = 'http://localhost:4321/api/alumni'
 
 async function fillDiv(request) {
     const res = await fetch(request)
