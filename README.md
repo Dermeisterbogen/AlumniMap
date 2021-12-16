@@ -2,7 +2,7 @@
 College Alumni Mapper that shows alumni data based on geo-location, occupation, and more!
 
 ## How to Run
-1. cd AlumniMap
+1. cd AlumniMap/Web/Alumni-Map-App
 2. npm install (this will install all necessary modules)
 3. npm install @angular/cli
 4. Make sure the .env file is present and filled-in correctly
