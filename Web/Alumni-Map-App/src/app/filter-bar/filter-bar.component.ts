@@ -11,6 +11,8 @@ import { FetchAlumniService } from '../service/fetch-alumni.service';
 const req = 'http://localhost:4321/api/alumni';
 let geocoder: google.maps.Geocoder;
 let map: google.maps.Map;
+let markers: google.maps.Marker[] = [];
+let currinfo: any = null;
 
 //declare function initMap() : any;
 //declare function addAlumni(): any;
@@ -57,21 +59,30 @@ export class FilterBarComponent implements OnInit {
     this.addAlumni();
   }
 
-  returnAll() {
-
-    var final = this.returnCheckedMajors() + " " + this.returnCheckedMinors();
-
-    console.log(final);
-    return final;
-
+  submitMajorMinor() {
+    var final = this.returnCheckedMajors() + "" + this.returnCheckedMinors();
+    this.addAlumniByCheckbox(final);
   }
 
   returnCheckedMajors() {
 
-    var full = "Major=";
+    var full = "";
     for (var names of this.majors) {
       if (names.checked == true) {
-        full += " | " + names.name;
+        full += "|" + names.name;
+      }
+    }
+
+    //console.log(full);
+    return full;
+  }
+
+  returnCheckedMinors() {
+
+    var full = "&";
+    for (var names of this.minors) {
+      if (names.checked == true) {
+        full += "|" + names.name;
       }
     }
 
@@ -80,47 +91,55 @@ export class FilterBarComponent implements OnInit {
 
   }
 
-  returnCheckedMinors() {
-
-    var full = "Minor=";
-    for (var names of this.minors) {
-      if (names.checked == true) {
-        full += " | " + names.name;
-      }
+  // hide and remove all markers from the array
+  clearMarkers() {
+    for (let i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
     }
+    markers = [];
+  }
 
-    //console.log(full);
-    return full;
-
+  // show all markers in the array on the map
+  showMarkers() {
+    for (let i = 0; i < markers.length; i++) {
+      markers[i].setMap(map);
+    }
   }
 
   // adds a marker to the map using Lat/Lng objects
   addMarker(alumni: any) {
     const marker = new google.maps.Marker({
-      position: { lat: alumni.Lat, lng: alumni.Long },
-      map: map,
+      position: { lat: parseFloat(alumni.Lat), lng: parseFloat(alumni.Long) },
+      map: null,
     });
 
     // Create the InfoWindow and attach the alumni information content to it
     const name = alumni.First + ' ' + alumni.Last;
-    const contentString = '<h1>' + name + '</h1>' +
-      '<p>College: ' + alumni.School + '</p>' +
-      '<p>Graduation Date: ' + alumni.GradYear + '</p>' +
-      '<p>Major: ' + alumni.Major + '</p>' +
-      '<p>Minor: ' + alumni.Minor + '</p>' +
-      '<p>Workplace: ' + alumni.Title + " at " + alumni.Organization + " in " + alumni.City + '</p>';
+    const contentString = '<h1 style="color: black">' + name + '</h1>' +
+      '<p style="color: black">College: ' + alumni.School + '</p>' +
+      '<p style="color: black">Graduation Date: ' + alumni.GradYear + '</p>' +
+      '<p style="color: black">Major: ' + alumni.Major + '</p>' +
+      '<p style="color: black">Minor: ' + alumni.Minor + '</p>' +
+      '<p style="color: black">Workplace: ' + alumni.Title + " at " + alumni.Organization + " in " + alumni.City + '</p>';
     const infowindow = new google.maps.InfoWindow({
       content: contentString,
     });
 
     // Add a click event to the marker that will open the InfoWindow
     marker.addListener("click", () => {
+      infowindow.setContent(contentString);
+      if (currinfo) {
+        currinfo.close();
+      }
       infowindow.open({
         anchor: marker,
         map,
         shouldFocus: false,
       });
+      currinfo = infowindow;
     });
+
+    markers.push(marker);
   }
 
   // converts the addresses of the alumni to coordinates
@@ -150,5 +169,33 @@ export class FilterBarComponent implements OnInit {
     for (let i = 0; i < alumni.length; i++) {
       this.addMarker(alumni[i]);
     }
+
+    // display all markers
+    this.showMarkers();
+  }
+
+  async addAlumniByCheckbox(options: any) {
+    if (options === '&') {
+      return;
+    }
+
+    // clear markers from map
+    this.clearMarkers();
+
+    // fetch the data into a json array
+    async function getData(req: any) {
+      const res = await fetch(req + '/options/' + options);
+      return res.json();
+    } options
+
+    const alumni = await getData(req);
+
+    // Add them all to the map; delay due to Google Maps API limit
+    for (let i = 0; i < alumni.length; i++) {
+      this.addMarker(alumni[i]);
+    }
+
+    // show markers on the map
+    this.showMarkers();
   }
 }
