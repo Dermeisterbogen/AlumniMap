@@ -1,5 +1,5 @@
-const div = document.getElementById('add-alumni')
-const request = 'http://localhost:1234/api/alumni'
+const div = document.getElementById('map')
+const request = 'http://localhost:4321/api/alumni'
 
 async function fillDiv(request) {
     const res = await fetch(request)
@@ -16,9 +16,9 @@ async function fillDiv(request) {
 }
 
 function createPara(record) {
-    const p = document.createElement('p')
+    const p = document.createElement('p');
     p.innerHTML = record;
-    div.append(p)
+    div.append(p);
 }
 
-fillDiv(request)
+fillDiv(request);

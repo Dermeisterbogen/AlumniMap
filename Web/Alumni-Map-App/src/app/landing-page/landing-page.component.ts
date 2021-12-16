@@ -10,17 +10,18 @@ import { Loader } from '@googlemaps/js-api-loader';
 export class LandingPageComponent implements OnInit {
 
   //39.96462866921976, -97.1857268754143
-ngOnInit(): void { 
-  let loader = new Loader({
-    apiKey: 'AIzaSyBbCJeZpwPUZ-k4-3QD-9lAI4bKlXubDWc'
-  })
-
-  loader.load().then(() => {
-    new google.maps.Map(document.getElementById("map")!, {
-      center: {lat: 39.96462866921976, lng: -97.1857268754143},
-      zoom: 4.3
+  ngOnInit(): void {
+    let loader = new Loader({
+      // apiKey: 'AIzaSyBbCJeZpwPUZ-k4-3QD-9lAI4bKlXubDWc'
+      apiKey: 'AIzaSyAebKdu9FE6-XWmo9Skp8YyUEunApizolg'
     })
-  }) 
-}
+
+    loader.load().then(() => {
+      new google.maps.Map(document.getElementById("map")!, {
+        center: { lat: 39.96462866921976, lng: -97.1857268754143 },
+        zoom: 4.3
+      })
+    })
+  }
 
 }

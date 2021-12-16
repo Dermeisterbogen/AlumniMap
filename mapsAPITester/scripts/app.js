@@ -68,15 +68,15 @@ function addressToCoords(alum) {
 function addAlumni() {
     const alumni = []
 
-    // fetch('<uri>')
-    //     .then(res => res.json())
-    //     .then(people => showPeople(people.results));
+    fetch('<uri>')
+        .then(res => res.json())
+        .then(people => showPeople(people.results));
 
-    // showPeople = people => {
-    //     people.forEach(person => {
-    //         alumni.push(person);
-    //     })
-    // }
+    showPeople = people => {
+        people.forEach(person => {
+            alumni.push(person);
+        })
+    }
 
 
     // Add them all to the map 
