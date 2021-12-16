@@ -23,7 +23,7 @@ Enjoy the app!
 
 Developers:
 ------------------
-Akshit Kumar
-Ronald Karamuca
-Tyler Roberts
-William Del Barrio
+William Del Barrio : Project Lead/Back-end Devleoper <br>
+Ronald Karamuca: Back-end Architect/Devleoper <br>
+Akshit Kumar: Front-end Developer <br>
+Tyler Roberts: Database Developer
