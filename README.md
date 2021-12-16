@@ -2,13 +2,12 @@
 College Alumni Mapper that shows alumni data based on geo-location, occupation, and more!
 
 ## How to Run
-1. cd AlumniMap/Web/Alumni-Map-App
-2. npm install (this will install all necessary modules)
-3. npm install @angular/cli
-4. Make sure the .env file is present and filled-in correctly
-5. To run the Alumni Mapper project locally, cd into Alumni-Map-App and type ng serve
-6. To run the API, cd into api and type nodemon api
-7. Navigate to http://localhost:4200/home in your favorite browser
+1. Clone the repo: git clone git@github.com:rkaramuca/AlumniMap.git
+2. cd AlumniMap/Web/api
+3. npm install
+4. Add the correct .env file with the database config 
+5. Run: node api
+6. Navigate to https://rkaramuca.github.io/AlumniMap/home
 
 By default, the app will load all markers from the database onto the map.
 Use the filter bar, with any combination of majors and minors, to see Alumni that have
