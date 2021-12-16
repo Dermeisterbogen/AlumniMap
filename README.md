@@ -9,6 +9,11 @@ College Alumni Mapper that shows alumni data based on geo-location, occupation, 
 5. Run: node api
 6. Navigate to https://rkaramuca.github.io/AlumniMap/home
 
+## How to Update on GitHub Pages
+1. npm i angular-cli-ghpages --save-dev
+2. ng build --prod --base-href "https://rkaramuca.github.io/AlumniMap/"
+3. npx angular-cli-ghpages --dir=dist/Alumni-Map-App
+
 By default, the app will load all markers from the database onto the map.
 Use the filter bar, with any combination of majors and minors, to see Alumni that have
 graduated with those degrees appear on the map in real time.
