@@ -2,7 +2,7 @@
 College Alumni Mapper that shows alumni data based on geo-location, occupation, and more!
 
 ## How to Run
-1. Clone the repo: git clone git@github.com:rkaramuca/AlumniMap.git
+1. Clone the repo: git clone https://github.com/rkaramuca/AlumniMap.git
 2. cd AlumniMap/Web/api
 3. npm install
 4. Add the correct .env file with the database config 
